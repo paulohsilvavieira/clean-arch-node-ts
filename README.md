@@ -1,6 +1,34 @@
-# API Perfect Boilerplate
+<h1 align="center">
+  Clean Arch Node TS
+</h1>
 
-Esse boilerplate foi criado para auxiliar a criação de aplicações
-totalmente testaveis e que implementam os principios do SOLID e os principios do clean architecture
 
-O conceito do clean architecture é uma arquitetura de software que busca manter a aplição isolada de mudanças relacionadas a tecnologias e frameworks, busca tambem manter as regras de negocio e casos de usos executando independente de qual cliente esteja conectado a aplicação
+<p align="center">
+  <a href="https://www.typescriptlang.org/">
+    <img alt="Typescript" src="https://img.shields.io/badge/maintained%20with-Typescript-blue"/>
+  </a>
+  <a href="https://nodejs.org/en/">
+    <img alt="Nodejs" src="https://img.shields.io/badge/maintained%20with-NodeJs-greenblue"/>
+  </a>
+   <a href="https://docker.com">
+    <img alt="Docker" src="https://img.shields.io/badge/maintained%20with-Docker-blue"/>
+  </a>
+</p>
+
+
+## Running with docker
+  ### Requisitos:
+
+  * Docker
+  * Docker-compose
+
+  ## Build Image:
+
+  ```sh
+  docker-compose build
+  ```
+  ## Running API
+
+  ```sh
+  docker-compose up -d
+  ```

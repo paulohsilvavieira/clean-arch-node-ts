@@ -1,5 +1,5 @@
-import { CreateAccountModel } from '@/domain/protocols/usecases/account'
+import { CreateAccount } from "../../usecases/account";
 
 export interface CreateAccountRepository{
-  create: (basicData: CreateAccountModel) => Promise<{accountId: string}>
+  create: (basicData: CreateAccount.Params) => Promise<boolean>
 }

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { Controller } from '@/application/protocols/controller'
+import { Controller } from '@/presenters/api/protocols/controller'
 
 import { Request, Response } from 'express'
 

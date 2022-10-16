@@ -1,5 +1,5 @@
 {
-  "name": "api-boilerplate",
+  "name": "clean-arch-node-ts",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -13,14 +13,14 @@
     "lint": "eslint .",
     "lint:fix": "npm lint -- --fix",
     "clean": "rimraf dist",
-    "build": "npm clean && tsc -p tsconfig-build.json",
+    "build": "npm run clean && tsc -p tsconfig-build.json",
     "tsc-alias": "npx tsc-alias"
   },
   "keywords": [
-    "api-boilerplate"
+    "clean-arch-node-ts"
   ],
   "author": "paulo.hsilvavieira@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/faker": "^5.5.6",

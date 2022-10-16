@@ -1,23 +1,23 @@
-import { CreateAccount, CreateAccountModel } from '@/domain/protocols/usecases/account'
+import { CreateAccount } from '@/domain/protocols/usecases/account'
 import { CreateAccountRepository } from '@/domain/protocols/repositories/account'
-import { Mail } from '@/domain/protocols/messages'
+import { Account } from '@/domain/entities'
 
 export class CreateAccountUseCase implements CreateAccount {
-  constructor (private readonly createAccountRepository: CreateAccountRepository, private readonly mailer: Mail) {}
+  constructor (private readonly createAccountRepository: CreateAccountRepository) {}
 
-  async create (createAccountModel: CreateAccountModel): Promise<boolean> {
-    const result = await this.createAccountRepository.create(createAccountModel)
-    const generateHash = () => {}
-    await this.mailer.send({
-      destination: createAccountModel.email,
-      locale: 'pt-BR',
-      typeEmail: 'CONFIRM_EMAIL',
-      contentToSend: {
-        payload: {
-          hashConfirmation: generateHash()
-        }
+  async execute (params: CreateAccount.Params): Promise<CreateAccount.Result> {
+    const account = new Account(params)
+    if (!account.isValid) {
+      return {
+        success: false,
+        errors: account.errors
       }
-    })
-    return result.accountId !== undefined
+    }
+
+    const result = await this.createAccountRepository.create(params)
+    return {
+      success: result,
+      errors: result ? null : new Error('Error on Create Account')
+    }
   }
 }

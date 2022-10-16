@@ -1,12 +1,7 @@
-export interface CreateAccountModel {
-  email: string
-  name: string
-  password: string
-  termsAcepted: boolean
-}
+import { ErrorStructure } from '@/domain/entities/error-structure'
 
 export interface CreateAccount {
-  create: (account: CreateAccount.Params) => Promise<boolean>
+  execute: (account: CreateAccount.Params) => Promise<CreateAccount.Result>
 }
 
 export namespace CreateAccount {
@@ -16,5 +11,8 @@ export namespace CreateAccount {
     password: string
     termsAcepted: boolean
   }
-  export type Result=boolean
+  export type Result={
+    success: boolean
+    errors: ErrorStructure[] | Error
+  }
 }
